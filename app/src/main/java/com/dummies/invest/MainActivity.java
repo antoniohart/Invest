@@ -18,6 +18,10 @@ import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
+    public final static String BANKID = "com.dummies.invest.BANKID";
+    public final static String INVID = "com.dummies.invest.INVID";
+
+
     private Button Search;
     private EditText amount;
     private String name;
@@ -27,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView  textView2;
     private TextView  textView3;
     private TextView  textView4;
+    private TextView proceed;
    // private Double deposit;
     private String  bankID;
     private String  bankName;
@@ -60,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         textView1   = findViewById(R.id.textView3);
         textView2   = findViewById(R.id.textView4);
         textView3   = findViewById(R.id.textView5);
+        proceed     = findViewById(R.id.proceed);
 
 
 
@@ -69,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (amount.getText().toString().trim().length() < 1) {
 
-            Toast.makeText(MainActivity.this, "You have enter an Amount", Toast.LENGTH_LONG).show();
+            Alerts alerts = new Alerts(MainActivity.this,"Alert!","Please enter an amount","Ok","Cancel");
+            alerts.showAlert();
 
         }else {
 
@@ -77,39 +84,54 @@ public class MainActivity extends AppCompatActivity {
             HighRateContainer.setVisibility(View.VISIBLE);
 
             //calling api for the bank with higest investment rate
-            HashMap postData = new HashMap();
-            postData.put("amount", "200");
 
-            PostResponseAsyncTask taskRead = new PostResponseAsyncTask(MainActivity.this, postData, new AsyncResponse() {
-                @Override
-                public void processFinish(String apiData) {
+            try{
 
-              //      Toast.makeText(MainActivity.this, apiData.toString(), Toast.LENGTH_SHORT).show();
+                HashMap postData = new HashMap();
+                postData.put("amount", "200");
 
+                PostResponseAsyncTask taskRead = new PostResponseAsyncTask(MainActivity.this, postData, new AsyncResponse() {
+                    @Override
+                    public void processFinish(String apiData) {
 
-                    String [] info  =apiData.split("/");
-                    bankID=info[0]; bankName=info[1]; invType=info[2]; rates= info[3]; period=info[4]; invId=info[5];
-                    //for bankname
-                    textView1.setText( bankName);
-
-                    //for invType
-                    textView2.setText( invType);
+//                        Toast.makeText(MainActivity.this, apiData.toString(), Toast.LENGTH_SHORT).show();
 
 
+                        String [] info  =apiData.split("/");
+                        bankID=info[0]; bankName=info[1]; invType=info[2]; rates= info[3]; period=info[4]; invId=info[5];
+                        //for bankname
+                        textView1.setText( bankName);
 
-                    //for rates
-
-                    rate=  100* Double.parseDouble(rates);
-                    //  StringBuffer sb = new StringBuffer(rate);
-                    textView3.setText( String.valueOf( rate )+ "%");
+                        //for invType
+                        textView2.setText( invType);
 
 
 
-                }
-            });
-            taskRead.execute(highRateURL);
+                        //for rates
 
-            //new RetrieveLogin().execute(amount.getText().toString());
+                        rate=  100* Double.parseDouble(rates);
+                        //  StringBuffer sb = new StringBuffer(rate);
+                        textView3.setText( String.valueOf( rate )+ "%");
+
+
+                        //setting proceed button to visivle
+                        proceed.setVisibility(View.VISIBLE);
+
+
+
+
+
+                    }
+                });
+                taskRead.execute(highRateURL);
+
+                //new RetrieveLogin().execute(amount.getText().toString());
+
+            }catch (Exception ex){
+
+                Toast.makeText(MainActivity.this, "Oops. something went wrong. check internet connection", Toast.LENGTH_LONG).show();
+            }
+
 
         }
     }
@@ -118,7 +140,13 @@ public class MainActivity extends AppCompatActivity {
     public void fillForm(View v){
 
         Intent intent = new Intent(MainActivity.this, RequestFormActivity.class);
+        //Passing Bank ID and Investment ID to next activity
+        intent.putExtra(BANKID,bankID);
+        intent.putExtra(INVID, invId);
+
         startActivity(intent);
+
+
     }
 
     }

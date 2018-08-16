@@ -63,7 +63,8 @@
                 android:background="@drawable/round_edit"
                 android:padding="5dp"
                 android:layout_gravity="center"
-                android:textSize="14dp"
+                android:textSize="18dp"
+                android:textColor="@color/colorPrimaryDark"
                 />
 
             <Button
@@ -85,7 +86,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/card2"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/card1"
         android:layout_marginTop="25dp"
         android:elevation="8dp"
@@ -103,6 +104,8 @@
             android:layout_height="match_parent"
             android:background="@color/layoutTransparent"
             android:orientation="vertical"
+            android:padding="10dp"
+            android:gravity="center"
             >
 
             <TextView
@@ -133,6 +136,23 @@
                 android:layout_below="@+id/textView4"
                 android:textSize="30dp"
                 android:textStyle="bold"
+
+                />
+
+            <TextView
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/proceed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView4"
+                android:drawableRight="@drawable/arrow_right"
+                android:gravity="center"
+                android:text="Proceed"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone"
 
                 />
 
