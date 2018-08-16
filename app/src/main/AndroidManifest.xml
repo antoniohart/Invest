@@ -19,6 +19,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RequestFormActivity"
+            android:label="@string/title_activity_request_form"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Welcome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dummies.invest.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

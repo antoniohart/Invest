@@ -98,4 +98,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    //filling the
+    public void fillForm(View v){
+
+        Intent intent = new Intent(MainActivity.this, RequestFormActivity.class);
+        startActivity(intent);
+    }
+
     }

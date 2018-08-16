@@ -91,6 +91,7 @@
         android:elevation="8dp"
         app:cardCornerRadius="8dp"
         android:visibility="gone"
+        android:onClick="fillForm"
         app:cardBackgroundColor="@android:color/transparent"
 
       >
