@@ -1,19 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".RequestFormActivity"
-    tools:showIn="@layout/activity_request_form"
-    android:layout_gravity="center">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="50dp"
+    android:id="@+id/relative"
+    android:background="@color/colorBackground">
 
-    <TextView
-        android:gravity="center"
+    <ImageView
+        android:id="@+id/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Investment Form"
-        android:textSize="30dp"/>
+        android:scaleType="centerCrop"
+        app:srcCompat="@mipmap/business" />
 
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card1"
+        android:paddingTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:elevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@android:color/transparent"
+
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/layoutTransparent"
+            >
+
+
+            <EditText
+                android:id="@+id/edit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="Enter your Email "
+                android:layout_gravity="center"
+                android:background="@drawable/round_edit"
+                android:padding="5dp"
+
+
+
+                />
+
+            <EditText
+                android:id="@+id/editt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:hint="Enter your telephone number "
+                android:inputType="textPersonName"
+                android:background="@drawable/round_edit"
+                android:padding="5dp"
+
+                android:layout_gravity="center"
+                />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:layout_gravity="center"
+                android:background="@drawable/round_button"
+                android:textColor="@color/colorWhite"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+
+                />
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
 </RelativeLayout>
