@@ -10,6 +10,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -55,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
            Search =findViewById(R.id.search);
            amount =findViewById(R.id.amount);
@@ -67,25 +69,33 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void btnSearch(View v) {
-        //setting Cardview 2 back to visible to display information
-        HighRateContainer.setVisibility(View.VISIBLE);
 
-        //calling api for the bank with higest investment rate
-        HashMap postData = new HashMap();
-        postData.put("amount", "200");
+        if (amount.getText().toString().trim().length() < 1) {
 
-        PostResponseAsyncTask taskRead = new PostResponseAsyncTask(MainActivity.this, postData, new AsyncResponse() {
-            @Override
-            public void processFinish(String apiData) {
+            Toast.makeText(MainActivity.this, "You have enter an Amount", Toast.LENGTH_LONG).show();
 
-                Toast.makeText(MainActivity.this, apiData.toString(),Toast.LENGTH_LONG).show();
+        }else {
 
-            }
-        });
-        taskRead.execute(highRateURL);
+            //setting Cardview 2 back to visible to display information
+            HighRateContainer.setVisibility(View.VISIBLE);
 
-        //new RetrieveLogin().execute(amount.getText().toString());
+            //calling api for the bank with higest investment rate
+            HashMap postData = new HashMap();
+            postData.put("amount", "200");
+
+            PostResponseAsyncTask taskRead = new PostResponseAsyncTask(MainActivity.this, postData, new AsyncResponse() {
+                @Override
+                public void processFinish(String apiData) {
+
+                    Toast.makeText(MainActivity.this, apiData.toString(), Toast.LENGTH_SHORT).show();
+
+                }
+            });
+            taskRead.execute(highRateURL);
+
+            //new RetrieveLogin().execute(amount.getText().toString());
 
         }
+    }
 
     }
