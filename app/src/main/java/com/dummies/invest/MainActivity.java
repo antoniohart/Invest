@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (amount.getText().toString().trim().length() < 1) {
 
-            Toast.makeText(MainActivity.this, "You have enter an Amount", Toast.LENGTH_LONG).show();
+            Toast.makeText(MainActivity.this, "Please Enter an Amount", Toast.LENGTH_LONG).show();
 
         }else {
 
