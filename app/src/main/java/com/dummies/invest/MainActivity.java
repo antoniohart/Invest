@@ -52,6 +52,9 @@ public class MainActivity extends AppCompatActivity {
 
     CardView HighRateContainer;
 
+    String Global_period;
+    String Global_amount;
+
     String highRateURL = Utility.getGetHighRateURL();
 
     @Override
@@ -83,14 +86,17 @@ public class MainActivity extends AppCompatActivity {
             case R.id.rb1:
                 if (checked)
                     Toast.makeText(MainActivity.this, "91 days", Toast.LENGTH_LONG).show();
+                        Global_period = "91";
                     break;
             case R.id.rb2:
                 if (checked)
-                    Toast.makeText(MainActivity.this, "181 days", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "182 days", Toast.LENGTH_LONG).show();
+                         Global_period = "182";
                     break;
             case R.id.rb3:
                  if (checked)
-                     Toast.makeText(MainActivity.this, "365 year", Toast.LENGTH_LONG).show();
+                     Toast.makeText(MainActivity.this, "365 days", Toast.LENGTH_LONG).show();
+                        Global_period = "365";
                  break;
 
         }
@@ -113,6 +119,9 @@ public class MainActivity extends AppCompatActivity {
 
         }else {
 
+            //passing value entered in amount EditText to Global_amount variable
+            Global_amount = amount.getText().toString().trim();
+
             //setting Cardview 2 back to visible to display information
             HighRateContainer.setVisibility(View.VISIBLE);
 
@@ -121,7 +130,8 @@ public class MainActivity extends AppCompatActivity {
             try{
 
                 HashMap postData = new HashMap();
-                postData.put("amount", "200");
+                postData.put("amount", Global_amount);
+                postData.put("period", Global_period);
 
                 PostResponseAsyncTask taskRead = new PostResponseAsyncTask(MainActivity.this, postData, new AsyncResponse() {
                     @Override
@@ -129,28 +139,39 @@ public class MainActivity extends AppCompatActivity {
 
 //                        Toast.makeText(MainActivity.this, apiData.toString(), Toast.LENGTH_SHORT).show();
 
+                        if(apiData.equalsIgnoreCase("NO DATA")){
 
-                        String [] info  =apiData.split("/");
-                        bankID=info[0]; bankName=info[1]; invType=info[2]; rates= info[3]; period=info[4]; invId=info[5];
-                        //for bankname
-                        textView1.setText( bankName);
+                            Alerts alert = new Alerts(MainActivity.this,"No record","There is no investment plan set for the amount entered","OK","Cancel");
+                            alert.showAlert();
 
-                        //for invType
-                        textView2.setText( invType);
+                        }else {
 
 
+                            String[] info = apiData.split("/");
+                            bankID = info[0];
+                            bankName = info[1];
+                            invType = info[2];
+                            rates = info[3];
+                            period = info[4];
+                            invId = info[5];
+                            //for bankname
+                            textView1.setText(bankName);
 
-                        //for rates
-
-                        rate=  100* Double.parseDouble(rates);
-                        //  StringBuffer sb = new StringBuffer(rate);
-                        textView3.setText( String.valueOf( rate )+ "%");
+                            //for invType
+                            textView2.setText(invType);
 
 
-                        //setting proceed button to visivle
-                        proceed.setVisibility(View.VISIBLE);
+                            //for rates
+
+                            rate = 100 * Double.parseDouble(rates);
+                            //  StringBuffer sb = new StringBuffer(rate);
+                            textView3.setText(String.valueOf(rate) + "%");
 
 
+                            //setting proceed button to visible
+                            proceed.setVisibility(View.VISIBLE);
+
+                        }
 
 
 
