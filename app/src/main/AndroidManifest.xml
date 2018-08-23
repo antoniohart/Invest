@@ -28,6 +28,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.dummies.invest.MainActivity" />
         </activity>
+        <activity
+            android:name=".MoreDetails"
+            android:label="@string/title_activity_more_details"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Welcome">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.dummies.invest.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

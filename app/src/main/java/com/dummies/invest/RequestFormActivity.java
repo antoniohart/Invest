@@ -7,6 +7,7 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class RequestFormActivity extends AppCompatActivity {
 
     String saveRequestURL = Utility.getGetSaveRequestURL();
 
+    Button button;
 
 
     @Override
@@ -45,7 +47,24 @@ public class RequestFormActivity extends AppCompatActivity {
 //        Toast.makeText(RequestFormActivity.this,getBankID+"\n"+getInvestmentID, Toast.LENGTH_SHORT).show();
 
 
+        button = (Button) findViewById(R.id.subt);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                // Start NewActivity.class
+                Intent myIntent = new Intent(RequestFormActivity.this,
+                        MoreDetails.class);
+                startActivity(myIntent);
+            }
+        });
+
+
     }
+
+
+
+
 
     public void submitRequest(View v){
 
@@ -58,7 +77,7 @@ public class RequestFormActivity extends AppCompatActivity {
 
             //calling api to save request details
 
-            try{
+            try {
 
                 HashMap postData = new HashMap();
                 postData.put("BnkID", getBankID.toString());

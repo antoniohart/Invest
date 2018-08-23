@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 import android.widget.TextView;
 
@@ -23,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button Search;
+    private RadioGroup radioGroup;
+    private RadioButton radio1;
+    private RadioButton radio2;
+    private RadioButton radio3;
     private EditText amount;
     private String name;
     private Double deposit;
@@ -32,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     private TextView  textView3;
     private TextView  textView4;
     private TextView proceed;
-   // private Double deposit;
     private String  bankID;
     private String  bankName;
     private String  invType;
@@ -59,21 +64,49 @@ public class MainActivity extends AppCompatActivity {
            Search =findViewById(R.id.search);
            amount =findViewById(R.id.amount);
 
-
-
-           HighRateContainer = findViewById(R.id.card2);
+          HighRateContainer = findViewById(R.id.card2);
         textView1   = findViewById(R.id.textView3);
         textView2   = findViewById(R.id.textView4);
         textView3   = findViewById(R.id.textView5);
         proceed     = findViewById(R.id.proceed);
-
+//        radio1= findViewById(R.id.rb1);
+//        radio2= findViewById(R.id.rb2);
+//        radio3= findViewById(R.id.rb3);
 
 
     }
+    public void onRadioButtonClicked(View v){
+         // Is the button now checked?
+        boolean checked = ((RadioButton) v).isChecked();
+        // Check which radio button was clicked
+        switch(v.getId()) {
+            case R.id.rb1:
+                if (checked)
+                    Toast.makeText(MainActivity.this, "91 days", Toast.LENGTH_LONG).show();
+                    break;
+            case R.id.rb2:
+                if (checked)
+                    Toast.makeText(MainActivity.this, "181 days", Toast.LENGTH_LONG).show();
+                    break;
+            case R.id.rb3:
+                 if (checked)
+                     Toast.makeText(MainActivity.this, "1 year", Toast.LENGTH_LONG).show();
+                 break;
+
+        }
+    }
+
+
+
+
+
+
+
+
 
     public void btnSearch(View v) {
 
-        if (amount.getText().toString().trim().length() < 1) {
+        if (amount.getText().toString().trim().length() < 1 || amount.getText().toString().trim().startsWith("0") ){
 
             Alerts alerts = new Alerts(MainActivity.this,"Alert!","Please enter an amount","Ok","Cancel");
             alerts.showAlert();

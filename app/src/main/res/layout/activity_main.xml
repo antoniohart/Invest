@@ -32,7 +32,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/card1"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="10dp"
@@ -52,13 +52,19 @@
             android:background="@color/layoutTransparent"
             >
 
+           <TextView
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:paddingTop="10dp"
+               android:text="Amount(GHS) :"/>
+
 
             <EditText
                 android:id="@+id/amount"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginBottom="20dp"
-                android:hint="Input your amount "
+                android:hint="Input your amount  "
                 android:inputType="numberDecimal"
                 android:background="@drawable/round_edit"
                 android:padding="5dp"
@@ -66,6 +72,36 @@
                 android:textSize="18dp"
                 android:textColor="@color/colorPrimaryDark"
                 />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="91 days"
+                android:onClick="onRadioButtonClicked"/>
+
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="181 days"
+                android:onClick="onRadioButtonClicked"
+                />
+
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="1 year"
+                android:onClick="onRadioButtonClicked"/>
+
+            </RadioGroup>
 
             <Button
                 android:id="@+id/search"
