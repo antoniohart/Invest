@@ -122,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
             //passing value entered in amount EditText to Global_amount variable
             Global_amount = amount.getText().toString().trim();
 
+            Toast.makeText(MainActivity.this, Global_period, Toast.LENGTH_LONG).show();
+
             //setting Cardview 2 back to visible to display information
             HighRateContainer.setVisibility(View.VISIBLE);
 
@@ -153,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                             invType = info[2];
                             rates = info[3];
                             period = info[4];
-                            invId = info[5];
+                      //      invId = info[5];
                             //for bankname
                             textView1.setText(bankName);
 
