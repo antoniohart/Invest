@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             case R.id.rb3:
                  if (checked)
-                     Toast.makeText(MainActivity.this, "1 year", Toast.LENGTH_LONG).show();
+                     Toast.makeText(MainActivity.this, "365 year", Toast.LENGTH_LONG).show();
                  break;
 
         }
