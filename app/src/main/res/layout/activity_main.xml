@@ -90,7 +90,7 @@
                 android:id="@+id/rb2"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="181 days"
+                android:text="182 days"
                 android:onClick="onRadioButtonClicked"
                 />
 
@@ -98,7 +98,7 @@
                 android:id="@+id/rb3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="365 year"
+                android:text="365 days"
                 android:onClick="onRadioButtonClicked"/>
 
             </RadioGroup>

@@ -46,18 +46,18 @@ public class RequestFormActivity extends AppCompatActivity {
 
 //        Toast.makeText(RequestFormActivity.this,getBankID+"\n"+getInvestmentID, Toast.LENGTH_SHORT).show();
 
-
-        button = (Button) findViewById(R.id.subt);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-
-                // Start NewActivity.class
-                Intent myIntent = new Intent(RequestFormActivity.this,
-                        MoreDetails.class);
-                startActivity(myIntent);
-            }
-        });
+          // leading to recycler view
+//        button = (Button) findViewById(R.id.subt);
+//
+//        button.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View arg0) {
+//
+//                // Start NewActivity.class
+//                Intent myIntent = new Intent(RequestFormActivity.this,
+//                        MoreDetails.class);
+//                startActivity(myIntent);
+//            }
+//        });
 
 
     }

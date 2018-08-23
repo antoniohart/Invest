@@ -95,17 +95,17 @@
                 android:onClick="submitRequest" ></Button>
 
 
-            <Button
-                android:id="@+id/subt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="more banks "
-                android:layout_gravity="center"
-                android:background="@drawable/round_button"
-                android:textColor="@color/colorWhite"
-                android:textAppearance="@style/TextAppearance.AppCompat"
+            <!--<Button-->
+                <!--android:id="@+id/subt"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="more banks "-->
+                <!--android:layout_gravity="center"-->
+                <!--android:background="@drawable/round_button"-->
+                <!--android:textColor="@color/colorWhite"-->
+                <!--android:textAppearance="@style/TextAppearance.AppCompat"-->
 
-                android:onClick="submitRequest"
+                <!--android:onClick="submitRequest"-->
 
 
                 />
