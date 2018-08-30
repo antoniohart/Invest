@@ -15,6 +15,7 @@ import java.util.List;
 public class MoreDetails extends AppCompatActivity {
     private List<InvestInfo> persons;
     private RecyclerView rv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,10 +44,6 @@ public class MoreDetails extends AppCompatActivity {
         RecyclerViewAdapter adapter = new RecyclerViewAdapter(persons);
         rv.setAdapter(adapter);
     }
-
-
-
-
 
 
     private void initializeData(){

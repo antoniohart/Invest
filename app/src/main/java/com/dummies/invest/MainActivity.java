@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton radio3;
     private EditText amount;
     private String name;
-    private Double deposit;
+    private Double deposit_deposit;
     private Double rate;
     private TextView  textView1;
     private TextView  textView2;
